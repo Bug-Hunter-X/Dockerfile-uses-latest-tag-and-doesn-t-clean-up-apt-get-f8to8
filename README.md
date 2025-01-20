@@ -1,0 +1,3 @@
+This repository demonstrates a common but easily avoidable error in Dockerfiles: using the `latest` tag and neglecting to clean up after `apt-get`.  The `Dockerfile` shows the problematic code. The `Dockerfile-solution` provides a corrected version.
+
+The use of `latest` leads to inconsistencies across builds, as the underlying base image may change unexpectedly.  The omission of cleanup using `apt-get autoremove && apt-get clean` results in unnecessarily large image sizes.  This can impact performance and resource consumption.
